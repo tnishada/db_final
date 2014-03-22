@@ -2,22 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Search Result</title>
+<title>Untitled Document</title>
 </head>
-
-<body>
-
 <?php
 
-require 'connector.php';
+// Create connection
+$con=mysqli_connect("localhost","root","","final_scema");
 
-if(isset($_POST['requested_date'])){
-$date = $_POST["requested_date"];
-
-print_r (explode("-",$date));
-
-}
-
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+  
+  
+ 
 ?>
+<body>
 </body>
 </html>

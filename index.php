@@ -9,6 +9,10 @@
 </head>
 
 <body>
+
+<?php
+require 'connector.php';
+?>
 <br><br>
 <div>
 <form action="show.php" method="POST" >
@@ -27,7 +31,7 @@
   </p>
   <div class="locationradio" >
     <p > ---------------- Select location --------------------------------
-      </p>
+      </p>  <!--
     <p>
       <input type="radio" name="locradio" value="location1" checked /> 
       location 1  </p>
@@ -43,12 +47,28 @@
     <input type="radio" name="locradio" value="location4"  /> 
     location 4
     
-  </p> </div>
+  </p>   -->
+    <?php
+  $query = "SELECT * FROM `locations`  ";
+  
+  $result = mysqli_query($con, $query);
+  
+  $row = mysqli_fetch_array($result);
+  echo " <p> <input type='radio' name='locradio' value=".$row["LocationId"]." checked /> ".$row["LocationName"]."</p>";
+  
+  while($row = mysqli_fetch_array($result)) //  Full texts 	LocationName 	Longitude 	Latitude 	LocationId 
+  {
+	  echo " <p> <input type='radio' name='locradio' value=".$row["LocationId"]." /> ".$row["LocationName"]."</p>";
+ // echo $row['TypeId'] . " " . $row['Mesurement'];
+ // echo "<br>";
+ }
+  ?>
+  </div>
   
   <div class="sensorradio">
   
-   <p > ------------------- Select sensor --------------------------------
-      </p>
+   <p > ------------------- Select sensor data --------------------------------
+      </p> <!--
     <p>
       <input type="radio" name="senradio" value="sensor1" checked /> 
       sensor 1  </p>
@@ -65,11 +85,27 @@
     sensor 4
     
   </p>
+  -->
   
+   <?php
+  $query = "SELECT * FROM `typeofmesurings` ";
+  
+  $result = mysqli_query($con, $query);
+  
+  $row = mysqli_fetch_array($result);
+  echo " <p> <input type='radio' name='senradio' value=".$row["TypeId"]." checked /> ".$row["Mesurement"]."</p>";
+  
+  while($row = mysqli_fetch_array($result))
+  {
+	  echo " <p> <input type='radio' name='senradio' value=".$row["TypeId"]." /> ".$row["Mesurement"]."</p>";
+ // echo $row['TypeId'] . " " . $row['Mesurement'];
+ // echo "<br>";
+ }
+  ?>
   </div>
    <div class="sensorcheckbox" >
-  ---------------- Select sensors -------------------------------- 
- 
+  ---------------- Select the data  -------------------------------- 
+ <!--
   
     <p>
       <input type="checkbox" name="loccheck" value="sen1" /> 
@@ -89,13 +125,26 @@
   
   
   
-    </p>
+    </p> -->
+       <?php
+  $query = "SELECT * FROM `typeofmesurings`  ";
+  
+  $result = mysqli_query($con, $query);
+ 
+  
+  while($row = mysqli_fetch_array($result)) //  Full texts 	LocationName 	Longitude 	Latitude 	LocationId 
+  {
+	  echo " <p> <input type='checkbox' name='loccheck' value=".$row["TypeId"]." /> ".$row["Mesurement"]."</p>";
+ // echo $row['TypeId'] . " " . $row['Mesurement'];
+ // echo "<br>";
+ }
+  ?>
     </div>
     
     <div class="locationcheckbox" >
   ---------------- Select locations -------------------------------- 
  
-  
+  <!--
     <p>
       <input type="checkbox" name="loccheck" value="loc1" /> 
       location 1
@@ -114,7 +163,20 @@
   
   
   
-    </p>
+    </p> --> 
+     <?php
+  $query = "SELECT * FROM `locations`  ";
+  
+  $result = mysqli_query($con, $query);
+ 
+  
+  while($row = mysqli_fetch_array($result)) //  Full texts 	LocationName 	Longitude 	Latitude 	LocationId 
+  {
+	  echo " <p> <input type='checkbox' name='loccheck' value=".$row["LocationId"]." /> ".$row["LocationName"]."</p>";
+ // echo $row['TypeId'] . " " . $row['Mesurement'];
+ // echo "<br>";
+ }
+  ?>
     </div>
     <div>
       <p>------------------- Select time --------------------------------
@@ -126,7 +188,7 @@
       <p >
   <input type="radio"  name="time" value="giventime" />
         specific time  &nbsp;
-         <input type="date" name="requested_date"> &nbsp; time in hours :
+         <input id="databox" type="date" name="requested_date"> &nbsp; time in hours :
         <label for="select"></label>
         <select name="select" id="select">
           <option value="00" selected="selected">00</option>
