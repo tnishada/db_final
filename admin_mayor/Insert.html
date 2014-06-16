@@ -1,0 +1,86 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+    <br>
+    	<a href="../indexprev.php"><input type="button" value="Back"/></a>
+    <br>
+    <br>
+        <b>INSERT USER:</b> <br>
+        <div> <form action="Admin_Add_User.php" method="post">
+        ID: <input type="text" name="ID">
+        Name: <input type="text" name="name">
+        Password: <input type="text" name="password">
+        Level: <input type="text" name="level">
+        <input type="submit">
+        </form></div>
+        <br><br>
+        
+        <b>INSERT SENSOR:</b> <br>
+        <div> <form action="Admin_Add_Sensor.php" method="post">
+        Sensor ID: <input type="text" name="s_ID">
+        Type ID: <input type="text" name="t_ID">
+        Sensor Name: <input type="text" name="name">
+        Manufacturer: <input type="text" name="manufacturer">
+        Manufacturing Date: <input type="text" name="m_date">
+        <input type="submit">
+        </form></div>
+        <br><br>
+        
+        <b>INSERT TYPE OF MEASURING:</b> <br>
+        <div> <form action="Admin_Add_typeofmesurings.php" method="post">
+        ID: <input type="text" name="ID">
+        Measurement: <input type="text" name="measurement">
+        Unit: <input type="text" name="unit">
+        <input type="submit">
+        </form></div>
+        <br><br>
+        
+        <b>INSERT LOCATIONS:</b> <br>
+        <div> <form action="Admin_Add_Location.php" method="post">
+        ID: <input type="text" name="ID">
+        Location Name: <input type="text" name="name">
+        Longitude: <input type="text" name="longitude">
+        Latitude: <input type="text" name="latitude">
+        <input type="submit">
+        </form></div>    
+        <br><br>
+        
+        <b>INSERT SENSOR LOCATION:</b> <br>
+        <div> <form action="Admin_Add_SensorLocation.php" method="post">
+        Sensor ID: <input type="text" name="s_ID">
+        Location ID: <input type="text" name="l_ID">
+        Sensor NO: <input type="text" name="number">
+        Deployment time: <input type="text" name="time">
+        <input type="submit">
+        </form></div>           
+        <br><br>
+        
+        <b>INSERT MAINTENANCE TYPE:</b> <br>
+        <div> <form action="Admin_Add_Mtype.php" method="post">
+        Maintenance Type ID: <input type="text" name="ID">
+        Type of Operation: <input type="text" name="o_type">
+        Service Provider: <input type="text" name="s_provider">
+        Cost: <input type="text" name="cost">
+        <input type="submit">
+        </form></div>    
+        <br><br>
+        
+        <b>INSERT MAINTENANCE:</b> <br>
+        <div> <form action="Admin_Add_Maintenance.php" method="post">
+        Reference No: <input type="text" name="r_no">
+        Sensor No: <input type="text" name="s_no">
+        Maintenance type ID: <input type="text" name="mtype_id">
+        Serviced Date: <input type="text" name="date">
+        <input type="submit">
+        </form></div>          
+        
+    </body>
+</html>
